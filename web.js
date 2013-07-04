@@ -5,7 +5,7 @@ var app = express.createServer(express.logger())
 app.get('/', function(request, response) {
     var str = '';
     console.log('About to read in index.html');
-    fs.readFile("./index.html", 'utf8', function(err, data){
+    fs.readFile('index.html', 'utf8', function(err, data){
 	if (err) {
 	    return console.log(err);
 	}
