@@ -3,7 +3,14 @@ var express = require('express');
 
 var app = express.createServer(express.logger())
 app.get('/', function(request, response) {
-    var str = fs.readFile("./index.html", 'utf-8');
+    var str = '';
+    fs.readFile("./index.html", 'utf8', function(err, data){
+	if (err) {
+	    return console.log(err);
+	}
+	str = data;
+	console.log(str);
+    });
     
     var buff = new Buffer(str, 'utf-8');
     response.send(buff.toString());
