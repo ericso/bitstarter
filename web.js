@@ -3,7 +3,8 @@ var express = require('express');
 
 var app = express.createServer(express.logger())
 app.get('/', function(request, response) {
-    var buff = new Buffer(fs.readFile('index.html', 'utf-8'), 'utf-8');
+    var str = fs.readFile('index.html', 'utf-8');
+    var buff = new Buffer(str, 'utf-8');
     response.send(buff.toString());
 });
 
